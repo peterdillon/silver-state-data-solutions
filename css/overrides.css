@@ -282,4 +282,18 @@ footer a:hover {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.slide-left {
+  animation: slideLeftAnimation both;
+  animation-timeline: view();
+}
+
+@keyframes slideLeftAnimation {
+  0% {
+    transform: translateX(1000px);
+  }
+  50% {
+    transform: translateX(0px);
+  }
+}
+
 /*# sourceMappingURL=overrides.css.map */
