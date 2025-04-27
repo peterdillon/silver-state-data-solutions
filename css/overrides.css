@@ -11,12 +11,73 @@
   --circle-size: 80%;
   --blending: hard-light;
   --w: 170%;
+  --stop-1: #4285f4;
+  --stop-2: #9b72cb;
+  --stop-3: #d96570;
+  --surface: #1b1c1d;
 }
 
 body {
   padding: 0;
   margin: 0;
   color: black;
+  line-height: 1.4;
+}
+
+.text {
+  position: relative;
+  color: transparent;
+  background: linear-gradient(74deg, var(--stop-1) 0, var(--stop-2) 9%, var(--stop-3) 20%, var(--stop-3) 24%, var(--stop-2) 35%, var(--stop-1) 44%, var(--stop-2) 50%, var(--stop-3) 56%, var(--surface) 75%, var(--surface) 100%);
+  background-size: 300% 100%;
+  background-clip: text;
+}
+
+.btn-ct-cta {
+  margin-top: 5rem;
+  height: 10rem;
+  position: relative;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+  width: 17rem;
+}
+
+.button {
+  display: block;
+  width: 327px;
+  height: 50px;
+  font-size: 1em;
+  font-weight: bold;
+  line-height: 60px;
+  text-align: center;
+  text-transform: uppercase;
+  background-color: transparent;
+  cursor: pointer;
+  text-decoration: none;
+  font-family: "Lato", sans-serif;
+  font-weight: 900;
+  font-size: 17px;
+  letter-spacing: 0.045em;
+}
+
+.button svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.button svg rect {
+  background: linear-gradient(74deg, var(--stop-1) 0, var(--stop-2) 9%, var(--stop-3) 20%, var(--stop-3) 24%, var(--stop-2) 35%, var(--stop-1) 44%, var(--stop-2) 50%, var(--stop-3) 56%, var(--surface) 75%, var(--surface) 100%);
+  stroke-width: 4;
+  stroke-dasharray: 483, 0;
+  stroke-dashoffset: 0;
+  transition: all 600ms ease;
+}
+
+.button:hover svg rect {
+  stroke-width: 4;
+  stroke-dasharray: 190, 625;
+  stroke-dashoffset: 437;
 }
 
 h1, h2, h3, p {
@@ -40,12 +101,13 @@ h1 {
 
 h2 {
   font-size: clamp(20px, 2rem + 1.5vw, 36px);
+  margin-top: 2rem;
 }
 
 h3 {
   font-size: clamp(16px, 1.5rem + 1vw, 28px);
   font-weight: 200;
-  line-height: 95%;
+  line-height: 1.99rem;
 }
 @media only screen and (min-width: 991px) and (max-width: 1199px) {
   h3 {
@@ -53,14 +115,17 @@ h3 {
   }
 }
 
-p {
-  font-size: clamp(14px, 1rem + 0.5vw, 20px);
-  font-weight: 200;
+p, ul, li {
+  font-size: clamp(14px, 1.2rem + 0.5vw, 20px);
+  font-weight: 300;
 }
-@media only screen and (min-width: 991px) and (max-width: 1199px) {
-  p {
-    font-size: 1rem !important;
-  }
+
+li {
+  padding-bottom: 1rem;
+}
+
+b {
+  font-weight: 500;
 }
 
 .container-fluid {
@@ -72,19 +137,18 @@ p {
   margin-top: 3rem;
 }
 
-.page-header {
+.logo {
   background: url("../images/logo-small.png") no-repeat;
-  display: block;
-  width: 100%;
   height: 80px;
-  color: white;
+}
+
+.header {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
 .nav-container {
-  margin: 1rem auto;
-  position: absolute;
-  right: 0;
+  margin: 1rem auto 0;
+  float: right;
 }
 .nav-container a {
   border-radius: 1.5rem;
@@ -95,11 +159,9 @@ p {
   text-decoration: none;
   transition-property: background-color;
   transition-duration: 0.3s;
-  font-weight: 300;
 }
 .nav-container a:hover {
-  color: black;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
 section {
@@ -143,17 +205,27 @@ section article {
   border-radius: 1rem;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   width: 100%;
-  height: 20rem;
+  height: 26rem;
   background-size: cover;
+  background-position: center center;
 }
 .info-img.aws {
   background-image: url("../images/aws-screen.jpg");
 }
-.info-img.tech-1 {
+.info-img.tech-3 {
   background-image: url("../images/tech-bg.jpg");
-  margin-top: 5rem;
+}
+.info-img.tech-data {
+  background-image: url("../images/tech-data.jpg");
+}
+.info-img.tech-4 {
+  background-image: url("../images/tech-bg-4.jpg");
+}
+.info-img.tech-1 {
+  background-image: url("../images/tech-bg-3.jpg");
+  margin-top: 8rem;
   margin-left: -4rem;
-  height: 23rem;
+  height: 28rem;
   width: 44rem;
   position: absolute;
 }
@@ -274,12 +346,14 @@ footer a {
   text-decoration: none;
   padding: 0.5rem;
   border-radius: 2rem;
+  transition-property: all;
+  transition-duration: 0.3s;
+  font-size: 1.2rem;
+  font-weight: 200;
 }
 footer a:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-  transition-duration: 0.2s;
-  transition-property: color, background-color;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  padding-left: 0.75rem;
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
 .slide-left {
