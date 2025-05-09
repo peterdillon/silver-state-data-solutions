@@ -33,13 +33,10 @@ body {
 }
 
 .btn-ct-cta {
-  margin-top: 5rem;
   height: 10rem;
   position: relative;
-  transform: translate(-50%, -50%);
-  left: 50%;
-  top: 50%;
-  width: 17rem;
+  margin: 5rem auto 0;
+  width: 20rem;
 }
 
 .button {
@@ -186,6 +183,11 @@ section article {
   backdrop-filter: blur(10px);
   box-shadow: 0 4px 90px rgba(0, 0, 0, 0.1);
 }
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .my-card {
+    min-height: 36rem;
+  }
+}
 .my-card:before {
   content: "";
   position: absolute;
@@ -235,6 +237,13 @@ section article {
 @media only screen and (max-width: 991px) {
   .info-img {
     display: none;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .head-bg-resp {
+    background-color: rgb(var(--color5));
+    padding-bottom: 2rem;
   }
 }
 

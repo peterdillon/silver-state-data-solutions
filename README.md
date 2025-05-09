@@ -1,1 +1,2 @@
 # silver-state-data-solutions
+New business venture focused on AI model development using AWS automated, low/no-code services such as Sagemaker Jumpstart, Canvas, GenAI App Builder, Glue DataBrew, DataWrangler, ML-AutoPilot, Clarify, State Machines, ML Pipeline, CodeBuild, CodeDeploy, CloudFormation Designer (and more) - in order to democratize AI for small businesses with restricted budgets.
